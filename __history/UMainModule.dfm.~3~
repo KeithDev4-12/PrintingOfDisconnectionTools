@@ -1,0 +1,11 @@
+object MainModuleU: TMainModuleU
+  OldCreateOrder = False
+  Height = 303
+  Width = 453
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=MYSQL_COOP')
+    Left = 64
+    Top = 56
+  end
+end

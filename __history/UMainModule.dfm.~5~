@@ -1,0 +1,38 @@
+object MainModuleU: TMainModuleU
+  OldCreateOrder = False
+  Height = 303
+  Width = 453
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=MYSQL_COOP')
+    Connected = True
+    Left = 64
+    Top = 56
+  end
+  object qryARLedger: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'Select '
+      'a.Entry'
+      'from coop.ARLedger a'
+      'where a.Code = :ACode'
+      'Group by a.BillMonth, a.AccountNumber'
+      'Having count(a.AccountNumber) = 1'
+      'Order by a.Date')
+    Left = 168
+    Top = 64
+    ParamData = <
+      item
+        Name = 'ACODE'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '24877'
+      end>
+    object qryARLedgerEntry: TIntegerField
+      FieldName = 'Entry'
+      Origin = 'Entry'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+  end
+end

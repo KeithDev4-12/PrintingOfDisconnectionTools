@@ -1,0 +1,75 @@
+object MainModuleU: TMainModuleU
+  OldCreateOrder = False
+  Height = 303
+  Width = 453
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=MYSQL_COOP')
+    Connected = True
+    Left = 64
+    Top = 56
+  end
+  object qryARLedger: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'Select'
+      'a.Code,'
+      'a.BillMonth,'
+      'a.Debit'
+      'from coop.ARLedger a'
+      'where a.Code =:ACode'
+      'Group by a.BillMonth, a.AccountNumber'
+      'Having count(a.AccountNumber) = 1'
+      'Order by a.Date')
+    Left = 168
+    Top = 64
+    ParamData = <
+      item
+        Name = 'ACODE'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '24877'
+      end>
+    object qryARLedgerCode: TFloatField
+      FieldName = 'Code'
+      Origin = 'Code'
+    end
+    object qryARLedgerBillMonth: TStringField
+      FieldName = 'BillMonth'
+      Origin = 'BillMonth'
+      Size = 4
+    end
+    object qryARLedgerDebit: TFloatField
+      FieldName = 'Debit'
+      Origin = 'Debit'
+      Required = True
+    end
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'Select'
+      'GROUP_CONCAT(a.BillMonth) AllBillMonth,'
+      'SUM(a.debit) AllTotalAmount'
+      'from'
+      '  coop.ARLedger a,'
+      '  coop.tempbillhistory t'
+      'where'
+      'a.Entry  IN (:AEntry)'
+      'AND'
+      't.code = a.code'
+      'and'
+      'a.BillMonth = t.BillMonth'
+      'Group by t.Area'
+      'Order by a.Date')
+    Left = 328
+    Top = 72
+    ParamData = <
+      item
+        Name = 'AENTRY'
+        DataType = ftString
+        ParamType = ptInput
+        Value = '8354527,8423922,8635160,8709561'
+      end>
+  end
+end

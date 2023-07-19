@@ -1,0 +1,43 @@
+object MainU: TMainU
+  Left = 0
+  Top = 0
+  Caption = 'Main Form'
+  ClientHeight = 469
+  ClientWidth = 663
+  Color = clBtnHighlight
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 97
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 663
+    Height = 97
+    Align = alTop
+    BevelKind = bkTile
+    BevelOuter = bvNone
+    TabOrder = 0
+  end
+  object MainMenu1: TMainMenu
+    Left = 600
+    Top = 32
+    object PrintMeDisconnectionNotice1: TMenuItem
+      Caption = 'Print Me'
+      object DisconnectionNotice1: TMenuItem
+        Caption = 'Disconnection Notice'
+      end
+      object DisconnectionService1: TMenuItem
+        Caption = 'Disconnection Service'
+      end
+    end
+    object About1: TMenuItem
+      Caption = 'About'
+    end
+  end
+end

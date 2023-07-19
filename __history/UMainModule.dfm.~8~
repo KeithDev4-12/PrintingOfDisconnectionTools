@@ -1,0 +1,74 @@
+object MainModuleU: TMainModuleU
+  OldCreateOrder = False
+  Height = 303
+  Width = 453
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=MYSQL_COOP')
+    Connected = True
+    Left = 64
+    Top = 56
+  end
+  object qryARLedger: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'Select'
+      'a.Code,'
+      'a.BillMonth,'
+      'a.Debit'
+      'from coop.ARLedger a'
+      'where a.Code =:ACode'
+      'Group by a.BillMonth, a.AccountNumber'
+      'Having count(a.AccountNumber) = 1'
+      'Order by a.Date')
+    Left = 168
+    Top = 64
+    ParamData = <
+      item
+        Name = 'ACODE'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '24877'
+      end>
+    object qryARLedgerCode: TFloatField
+      FieldName = 'Code'
+      Origin = 'Code'
+    end
+    object qryARLedgerBillMonth: TStringField
+      FieldName = 'BillMonth'
+      Origin = 'BillMonth'
+      Size = 4
+    end
+    object qryARLedgerDebit: TFloatField
+      FieldName = 'Debit'
+      Origin = 'Debit'
+      Required = True
+    end
+  end
+  object qryMaster: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT'
+      '  T.CODE,'
+      '  T.ACCOUNTNUMBER,'
+      '  T.NAME,'
+      '  T.AREA,'
+      '  T.BOOK,'
+      '  T.RATECODE,'
+      '  T.WRSECRATE'
+      'FROM'
+      '  COOP.TEMPBILLHISTORY T'
+      'WHERE'
+      '  T.BOOK = :ABook'
+      'GROUP BY T.CODE')
+    Left = 56
+    Top = 136
+    ParamData = <
+      item
+        Name = 'ABOOK'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '421'
+      end>
+  end
+end

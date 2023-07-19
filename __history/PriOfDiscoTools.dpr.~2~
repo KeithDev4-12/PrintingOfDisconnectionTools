@@ -1,0 +1,14 @@
+program PriOfDiscoTools;
+
+uses
+  Vcl.Forms,
+  UMain in 'UMain.pas' {MainU};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TMainU, MainU);
+  Application.Run;
+end.

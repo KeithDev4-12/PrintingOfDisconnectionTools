@@ -1,0 +1,279 @@
+object MainModuleU: TMainModuleU
+  OldCreateOrder = False
+  Height = 303
+  Width = 453
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Server=192.168.4.1'
+      'ConnectionDef=MYSQL_COOP')
+    Connected = True
+    Left = 64
+    Top = 56
+  end
+  object qryARLedger: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'Select'
+      'a.Code,'
+      'a.BillMonth,'
+      'a.Debit'
+      'from coop.ARLedger a'
+      'where a.Code =:ACode'
+      'Group by a.BillMonth, a.AccountNumber'
+      'Having count(a.AccountNumber) = 1'
+      'Order by a.Date')
+    Left = 168
+    Top = 64
+    ParamData = <
+      item
+        Name = 'ACODE'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '24877'
+      end>
+    object qryARLedgerCode: TFloatField
+      FieldName = 'Code'
+      Origin = 'Code'
+    end
+    object qryARLedgerBillMonth: TStringField
+      FieldName = 'BillMonth'
+      Origin = 'BillMonth'
+      Size = 4
+    end
+    object qryARLedgerDebit: TFloatField
+      FieldName = 'Debit'
+      Origin = 'Debit'
+      Required = True
+    end
+  end
+  object qryMaster: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT'
+      '  T.CODE,'
+      '  T.ACCOUNTNUMBER,'
+      '  T.NAME,'
+      '  T.AREA,'
+      '  T.BOOK,'
+      '  T.RATECODE,'
+      '  T.WRSECRATE'
+      'FROM'
+      '  COOP.TEMPBILLHISTORY T'
+      'WHERE'
+      '  T.BOOK = :ABook'
+      'GROUP BY T.CODE')
+    Left = 56
+    Top = 136
+    ParamData = <
+      item
+        Name = 'ABOOK'
+        DataType = ftWideString
+        ParamType = ptInput
+        Value = '421'
+      end>
+    object qryMasterCODE: TFloatField
+      FieldName = 'CODE'
+      Origin = 'Code'
+      Required = True
+    end
+    object qryMasterACCOUNTNUMBER: TStringField
+      FieldName = 'ACCOUNTNUMBER'
+      Origin = 'AccountNumber'
+      Size = 10
+    end
+    object qryMasterNAME: TStringField
+      FieldName = 'NAME'
+      Origin = 'Name'
+      Size = 50
+    end
+    object qryMasterAREA: TStringField
+      FieldName = 'AREA'
+      Origin = 'Area'
+      FixedChar = True
+      Size = 3
+    end
+    object qryMasterBOOK: TStringField
+      FieldName = 'BOOK'
+      Origin = 'Book'
+      FixedChar = True
+      Size = 3
+    end
+    object qryMasterRATECODE: TStringField
+      FieldName = 'RATECODE'
+      Origin = 'RateCode'
+      FixedChar = True
+      Size = 1
+    end
+    object qryMasterWRSECRATE: TStringField
+      FieldName = 'WRSECRATE'
+      Origin = 'WRSECRate'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object VTMaster: TVirtualTable
+    Left = 208
+    Top = 136
+    Data = {03000000000000000000}
+    object VTMasterCode: TStringField
+      FieldName = 'Code'
+      Size = 30
+    end
+    object VTMasterAccountNumber: TStringField
+      FieldName = 'AccountNumber'
+      Size = 11
+    end
+    object VTMasterName: TStringField
+      FieldName = 'Name'
+      Size = 45
+    end
+    object VTMasterArea: TStringField
+      FieldName = 'Area'
+      Size = 3
+    end
+    object VTMasterBook: TStringField
+      FieldName = 'Book'
+      Size = 3
+    end
+    object VTMasterRateCode: TStringField
+      FieldName = 'RateCode'
+      Size = 1
+    end
+    object VTMasterWRSECRATE: TStringField
+      FieldName = 'WRSECRATE'
+      Size = 1
+    end
+    object VTMasterBillMonths: TStringField
+      FieldName = 'BillMonths'
+      Size = 255
+    end
+    object VTMasterNoOfBills: TIntegerField
+      FieldName = 'NoOfBills'
+    end
+    object VTMasterTotalAmount: TCurrencyField
+      FieldName = 'TotalAmount'
+    end
+    object VTMasterDateOfGenerated: TDateTimeField
+      FieldName = 'DateOfGenerated'
+    end
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from priofdiscotools.disconotice')
+    Left = 352
+    Top = 48
+    object FDQuery1id: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDQuery1Code: TFloatField
+      FieldName = 'Code'
+      Origin = 'Code'
+      Required = True
+    end
+    object FDQuery1AccountNumber: TStringField
+      FieldName = 'AccountNumber'
+      Origin = 'AccountNumber'
+      Required = True
+      Size = 10
+    end
+    object FDQuery1Name: TStringField
+      FieldName = 'Name'
+      Origin = 'Name'
+      Required = True
+      Size = 45
+    end
+    object FDQuery1Area: TStringField
+      FieldName = 'Area'
+      Origin = 'Area'
+      Required = True
+      Size = 3
+    end
+    object FDQuery1Book: TStringField
+      FieldName = 'Book'
+      Origin = 'Book'
+      Required = True
+      Size = 3
+    end
+    object FDQuery1RateCode: TStringField
+      FieldName = 'RateCode'
+      Origin = 'RateCode'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object FDQuery1WRSECRATE: TStringField
+      FieldName = 'WRSECRATE'
+      Origin = 'WRSECRATE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object FDQuery1BillMonths: TStringField
+      FieldName = 'BillMonths'
+      Origin = 'BillMonths'
+      Required = True
+      Size = 255
+    end
+    object FDQuery1NoOfBills: TLongWordField
+      FieldName = 'NoOfBills'
+      Origin = 'NoOfBills'
+      Required = True
+    end
+    object FDQuery1TotalAmount: TBCDField
+      FieldName = 'TotalAmount'
+      Origin = 'TotalAmount'
+      Required = True
+      Precision = 18
+      Size = 2
+    end
+    object FDQuery1DateOfGenerated: TDateTimeField
+      FieldName = 'DateOfGenerated'
+      Origin = 'DateOfGenerated'
+      Required = True
+    end
+  end
+  object qryVicinity: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select '
+      '* '
+      'from '
+      'coop.vicinity v '
+      '')
+    Left = 360
+    Top = 184
+    object qryVicinityEntry: TFDAutoIncField
+      FieldName = 'Entry'
+      Origin = 'Entry'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object qryVicinityArea: TStringField
+      FieldName = 'Area'
+      Origin = 'Area'
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object qryVicinityBook: TStringField
+      FieldName = 'Book'
+      Origin = 'Book'
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object qryVicinityAddress: TStringField
+      FieldName = 'Address'
+      Origin = 'Address'
+      Size = 50
+    end
+    object qryVicinityCategory: TStringField
+      FieldName = 'Category'
+      Origin = 'Category'
+      Size = 15
+    end
+  end
+end

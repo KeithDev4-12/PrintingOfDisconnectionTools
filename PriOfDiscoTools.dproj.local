@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/03/10 13:29:07.000.555,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/03/10 13:36:52.000.675,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/03/10 13:40:00.000.275,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/03/10 15:05:33.000.774,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/07/22 13:22:45.000.198,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/07/22 13:26:23.000.371,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2022/08/22 15:38:43.000.613,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2023/03/31 14:15:48.000.815,=D:\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2023/03/31 14:17:09.000.681,D:\Documents\Embarcadero\Studio\Projects\Unit4.pas=F:\2023\PrintingOfDisconnectionTools\UMain.pas</Transaction>
+    <Transaction>2023/03/31 14:17:09.000.681,D:\Documents\Embarcadero\Studio\Projects\Unit4.dfm=F:\2023\PrintingOfDisconnectionTools\UMain.dfm</Transaction>
+    <Transaction>2023/03/31 14:17:18.000.269,D:\Documents\Embarcadero\Studio\Projects\Project3.dproj=F:\2023\PrintingOfDisconnectionTools\PriOfDiscoTools.dproj</Transaction>
+    <Transaction>2023/03/31 14:46:14.000.786,=F:\2023\PrintingOfDisconnectionTools\Unit1.pas</Transaction>
+    <Transaction>2023/03/31 14:46:20.000.707,F:\2023\PrintingOfDisconnectionTools\Unit1.dfm=F:\2023\PrintingOfDisconnectionTools\UMainModule.dfm</Transaction>
+    <Transaction>2023/03/31 14:46:20.000.707,F:\2023\PrintingOfDisconnectionTools\Unit1.pas=F:\2023\PrintingOfDisconnectionTools\UMainModule.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>
